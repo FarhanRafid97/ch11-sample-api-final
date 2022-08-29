@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  name: 🚀 Deploy
   deploy:
+    name: 🚀 Deploy
     runs-on: ubuntu-latest
 
     # only deploy main branch on pushes
