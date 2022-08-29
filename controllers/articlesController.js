@@ -1,4 +1,4 @@
-const { Article } = require("../models");
+const { Article } = require('../models');
 
 exports.index = async (req, res) => {
   const articles = await Article.findAll();
@@ -9,7 +9,7 @@ exports.show = async (req, res) => {
   const id = Number(req.params.id);
   if (isNaN(id)) {
     return res.status(400).json({
-      message: "ID must be a number",
+      message: 'ID must be a number',
     });
   }
 
@@ -17,7 +17,7 @@ exports.show = async (req, res) => {
 
   if (!article) {
     return res.status(404).json({
-      message: "Article not found",
+      message: 'Article not found',
     });
   }
 
@@ -29,7 +29,7 @@ exports.store = async (req, res) => {
 
   if (!title || !body) {
     return res.status(400).json({
-      message: "Failed to create new article",
+      message: 'Failed to create new article',
     });
   }
 
@@ -41,7 +41,7 @@ exports.update = async (req, res) => {
   const id = Number(req.params.id);
   if (isNaN(id)) {
     return res.status(400).json({
-      message: "ID must be a number",
+      message: 'ID must be a number',
     });
   }
 
@@ -49,7 +49,7 @@ exports.update = async (req, res) => {
 
   if (!article) {
     return res.status(404).json({
-      message: "Article not found",
+      message: 'Article not found',
     });
   }
 
@@ -57,7 +57,7 @@ exports.update = async (req, res) => {
 
   if (!title || !body) {
     return res.status(400).json({
-      message: "Failed to create new article",
+      message: 'Failed to create new article',
     });
   }
 
@@ -69,7 +69,7 @@ exports.destroy = async (req, res) => {
   const id = Number(req.params.id);
   if (isNaN(id)) {
     return res.status(400).json({
-      message: "ID must be a number",
+      message: 'ID must be a number',
     });
   }
 
@@ -77,7 +77,7 @@ exports.destroy = async (req, res) => {
 
   if (!article) {
     return res.status(404).json({
-      message: "Article not found",
+      message: 'Article not found',
     });
   }
 
