@@ -1,0 +1,25 @@
+name: 🚀 Deployment 😎
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  name: 🚀 Deploy
+  deploy:
+    runs-on: ubuntu-latest
+
+    # only deploy main branch on pushes
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 🚀 Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
