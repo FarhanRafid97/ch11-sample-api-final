@@ -37,6 +37,7 @@ jobs:
       DB_PASSWORD: postgres
       DB_NAME: binar-sample-api
       APP_SECRET: secret-information
+      NODE_ENV: test
 
     services:
       postgres:
