@@ -7,7 +7,7 @@ exports.index = async (req, res) => {
 
 exports.show = async (req, res) => {
   const id = Number(req.params.id);
-  if (isNaN(id)) {
+  if (Number.isNaN(id)) {
     return res.status(400).json({
       message: 'ID must be a number',
     });
@@ -21,7 +21,7 @@ exports.show = async (req, res) => {
     });
   }
 
-  res.json(article);
+  return res.json(article);
 };
 
 exports.store = async (req, res) => {
@@ -34,12 +34,12 @@ exports.store = async (req, res) => {
   }
 
   const article = await Article.create({ title, body });
-  res.status(201).json(article);
+  return res.status(201).json(article);
 };
 
 exports.update = async (req, res) => {
   const id = Number(req.params.id);
-  if (isNaN(id)) {
+  if (Number.isNaN(id)) {
     return res.status(400).json({
       message: 'ID must be a number',
     });
@@ -62,12 +62,12 @@ exports.update = async (req, res) => {
   }
 
   const updatedArticle = await article.update({ title, body });
-  res.json(updatedArticle);
+  return res.json(updatedArticle);
 };
 
 exports.destroy = async (req, res) => {
   const id = Number(req.params.id);
-  if (isNaN(id)) {
+  if (Number.isNaN(id)) {
     return res.status(400).json({
       message: 'ID must be a number',
     });
@@ -82,5 +82,5 @@ exports.destroy = async (req, res) => {
   }
 
   await article.destroy();
-  res.status(204).send();
+  return res.status(204).send();
 };
