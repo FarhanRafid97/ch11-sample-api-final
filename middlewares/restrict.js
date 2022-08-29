@@ -1,5 +1,5 @@
-const passport = require("../lib/passport");
+const passport = require('../lib/passport');
 
-module.exports = passport.authenticate("jwt", {
+module.exports = passport.authenticate('jwt', {
   session: false,
 });
